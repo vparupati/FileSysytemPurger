@@ -1,0 +1,45 @@
+Index: scalFs.py
+===================================================================
+--- scalFs.py	(date 0)
++++ scanFs.py	(date 1532426426919)
+@@ -1,20 +1,6 @@
+ import os
+-import sys
+ import time
+ 
+-def get_tree_size(path):
+-    """Return total size of files in given path and subdirs."""
+-    total = 0
+-    for entry in os.scandir(path):
+-        if entry.is_dir(follow_symlinks=False):
+-            total += get_tree_size(entry.path)
+-        else:
+-            total += entry.stat(follow_symlinks=False).st_size
+-    return total
+-
+-
+-#print(get_tree_size("C:\\Users\\vidyasagar.parupati\\intellij-workspace"));
+-
+ 
+ def get_tree(path):
+     count = 0
+@@ -31,12 +17,13 @@
+         print("OS Error error: {0}".format(err))
+     return count
+ 
++
+ start = time.time()
+-#print(get_tree("C:\\Users\\vidyasagar.parupati\\fileSysTest"));
+-#print(get_tree("//D-3cmht02/hera/templates"));
+-print(get_tree("//jhbcdffp01/CLADMIN"));
+-
+-#"C:\\Users\\vidyasagar.parupati"
+-#print(get_tree(sys.argv[0]));
++print(get_tree("//jhbcdffp01/CLADMIN"))
+ end = time.time()
+ print(end - start)
++
++
++def get_matched_tree():
++
++    return
